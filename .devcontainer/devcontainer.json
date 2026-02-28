@@ -20,9 +20,18 @@
         "dbaeumer.eslint",
         "esbenp.prettier-vscode",
         "bradlc.vscode-tailwindcss",
-        "ms-vscode.vscode-typescript-next"
+        "ms-vscode.vscode-typescript-next",
+        "anthropic.claude-code"
       ]
     }
   },
-  "forwardPorts": [3000, 3001, 5555]
+  "forwardPorts": [3000, 3001, 5555],
+  "portsAttributes": {
+    "3000": { "protocol": "http" },
+    "3001": { "protocol": "http" }
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "silent",
+    "protocol": "http"
+  }
 }

@@ -80,6 +80,6 @@ echo "生成完了: $OUTPUT"
 
 # 自動で開く
 if [ "$AUTO_OPEN" = true ]; then
-  code "$OUTPUT"
+  code --reuse-window "$OUTPUT"
   echo "ワークスペースを開きました"
 fi

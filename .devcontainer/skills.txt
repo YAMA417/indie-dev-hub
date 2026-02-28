@@ -1,10 +1,32 @@
 # Skills リスト（owner/repo@skill-name 形式）
 # postCreate.sh と sync-skills.sh がこのファイルを参照する
 #
-# 追加: echo 'owner/repo@skill-name' >> .devcontainer/skills.txt
-# 検索: npx skills find 'keyword'
-# 同期: bash scripts/sync-skills.sh
-vercel-labs/skills@find-skills
-anthropics/skills@skill-creator
-nextlevelbuilder/ui-ux-pro-max-skill@ui-ux-pro-max
-vercel-labs/agent-skills@vercel-react-best-practices
+# 使い方:
+#   追加: echo 'owner/repo@skill-name' >> .devcontainer/skills.txt
+#   検索: npx skills find 'keyword'
+#   同期: bash scripts/sync-skills.sh
+#
+# ========================================
+# おすすめ Skills（コメントを外すとインストールされます）
+# ========================================
+#
+# --- スキル検索・作成 ---
+# vercel-labs/skills@find-skills
+#   Skills を検索するためのスキル。npx skills find と同等の機能を Claude Code 内で使える
+#
+# anthropics/skills@skill-creator
+#   オリジナルの Skill を作成するためのスキル。Anthropic 公式
+#
+# --- UI/UX・フロントエンド ---
+# nextlevelbuilder/ui-ux-pro-max-skill@ui-ux-pro-max
+#   UI/UXデザインのベストプラクティスを適用。配色、タイポグラフィ、レイアウト設計を支援
+#
+# vercel-labs/agent-skills@vercel-react-best-practices
+#   React/Next.js のパフォーマンス最適化ルール集。レンダリング、バンドル、キャッシュなど50以上のルール
+#
+# ibelick/ui-skills@fixing-accessibility
+#   アクセシビリティの問題を検出・修正。WCAG準拠のUI改善を支援
+#
+# --- その他 ---
+# mindrally/skills@ci-cd-best-practices
+#   CI/CDパイプラインのベストプラクティス。GitHub Actions、テスト戦略、デプロイ最適化

@@ -1,0 +1,28 @@
+{
+  "name": "Projects Dev Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "remoteUser": "node",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "postCreateCommand": "bash .devcontainer/postCreate.sh",
+  "mounts": [
+    "source=projects-claude-data,target=/home/node/.claude,type=volume",
+    "source=projects-npm-cache,target=/home/node/.npm,type=volume",
+    "source=projects-pnpm-store,target=/home/node/.local/share/pnpm,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next"
+      ]
+    }
+  },
+  "forwardPorts": [3000, 3001, 5555]
+}

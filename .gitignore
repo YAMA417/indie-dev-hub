@@ -1,0 +1,27 @@
+# 子プロジェクト（独立したGitリポジトリ）
+repo/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Claude Code (local settings)
+.claude/settings.local.json
+
+# 動的生成ファイル
+*.code-workspace
+
+# Node
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local

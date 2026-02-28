@@ -1,0 +1,10 @@
+# Skills リスト（owner/repo@skill-name 形式）
+# postCreate.sh と sync-skills.sh がこのファイルを参照する
+#
+# 追加: echo 'owner/repo@skill-name' >> .devcontainer/skills.txt
+# 検索: npx skills find 'keyword'
+# 同期: bash scripts/sync-skills.sh
+vercel-labs/skills@find-skills
+anthropics/skills@skill-creator
+nextlevelbuilder/ui-ux-pro-max-skill@ui-ux-pro-max
+vercel-labs/agent-skills@vercel-react-best-practices

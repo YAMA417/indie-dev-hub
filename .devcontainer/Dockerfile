@@ -1,4 +1,4 @@
-FROM node:22-bookworm
+FROM node:24-bookworm
 
 # システムパッケージ
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -13,7 +13,7 @@ RUN echo "node ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/node \
 
 USER node
 
-# Volta（Node.jsバージョン管理）
+# Volta（子プロジェクトごとのNode.jsバージョン切替用）
 ENV VOLTA_HOME=/home/node/.volta
 ENV PATH=${VOLTA_HOME}/bin:${PATH}
 RUN curl https://get.volta.sh | bash

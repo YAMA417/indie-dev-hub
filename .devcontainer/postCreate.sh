@@ -24,7 +24,18 @@ else
   volta install pnpm
 fi
 
-# ---- 2. Skills インストール ----
+# ---- 2. Claude Code インストール ----
+echo ""
+echo "--- Claude Code インストール ---"
+
+if command -v claude &>/dev/null; then
+  echo "[OK] Claude Code: $(claude --version 2>/dev/null || echo 'installed')"
+else
+  echo "[INSTALL] Claude Code をインストール中..."
+  npm install -g @anthropic-ai/claude-code && echo "[OK] Claude Code インストール完了" || echo "[WARN] Claude Code のインストールに失敗"
+fi
+
+# ---- 3. Skills インストール ----
 echo ""
 echo "--- Skills インストール ---"
 
@@ -46,13 +57,12 @@ if [ -f "$SKILLS_FILE" ]; then
     done < "$SKILLS_FILE"
   else
     echo "[INFO] Claude CLI 未インストールのためスキップ"
-    echo "  公式ガイドに従って Claude Code をインストール後、bash scripts/sync-skills.sh を実行してください"
   fi
 else
   echo "[WARN] skills.txt が見つかりません: $SKILLS_FILE"
 fi
 
-# ---- 3. 子プロジェクト状態 ----
+# ---- 4. 子プロジェクト状態 ----
 echo ""
 echo "--- 子プロジェクト状態 ---"
 
@@ -67,7 +77,7 @@ for dir in repo/*/; do
   fi
 done
 
-# ---- 4. ワークスペース生成 ----
+# ---- 5. ワークスペース生成 ----
 WORKSPACE_SCRIPT="/workspaces/projects/scripts/generate-workspace.sh"
 if [ -f "$WORKSPACE_SCRIPT" ]; then
   echo ""

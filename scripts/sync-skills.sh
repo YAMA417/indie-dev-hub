@@ -23,7 +23,7 @@ while IFS= read -r line; do
   skill_name="${line##*@}"
   if [ ! -d "$SKILLS_DIR/$skill_name" ]; then
     echo "[INSTALL] $skill_name ..."
-    npx -y skills add "$line" 2>/dev/null && echo "[OK] $skill_name" || echo "[WARN] $skill_name のインストールに失敗"
+    npx -y skills add "$line" -g --agent claude-code -y 2>/dev/null && echo "[OK] $skill_name" || echo "[WARN] $skill_name のインストールに失敗"
     ((installed_count++)) || true
   fi
 done < "$SKILLS_FILE"

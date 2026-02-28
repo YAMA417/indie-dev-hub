@@ -52,7 +52,7 @@ if [ -f "$SKILLS_FILE" ]; then
         echo "[SKIP] $skill_name（既にインストール済み）"
       else
         echo "[INSTALL] $skill_name ..."
-        npx -y skills add "$line" 2>/dev/null && echo "[OK] $skill_name" || echo "[WARN] $skill_name のインストールに失敗"
+        npx -y skills add "$line" -g --agent claude-code -y 2>/dev/null && echo "[OK] $skill_name" || echo "[WARN] $skill_name のインストールに失敗"
       fi
     done < "$SKILLS_FILE"
   else

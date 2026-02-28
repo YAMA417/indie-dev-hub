@@ -96,7 +96,7 @@ bash scripts/generate-workspace.sh --open <project-name>
 
 ```bash
 # スキルを追加
-npx skills add owner/repo@skill-name
+npx skills add owner/repo@skill-name -g --agent claude-code -y
 echo 'owner/repo@skill-name' >> .devcontainer/skills.txt
 
 # 同期確認

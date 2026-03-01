@@ -5,8 +5,8 @@ set -euo pipefail
 #
 # 使い方:
 #   bash scripts/generate-workspace.sh                         # 全プロジェクト
-#   bash scripts/generate-workspace.sh my-project         # 指定プロジェクトのみ
-#   bash scripts/generate-workspace.sh --open my-project  # 生成して自動で開く
+#   bash scripts/generate-workspace.sh poke-dex-battle         # 指定プロジェクトのみ
+#   bash scripts/generate-workspace.sh --open poke-dex-battle  # 生成して自動で開く
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 REPO_DIR="$ROOT_DIR/repo"
@@ -34,8 +34,12 @@ if [ -n "$PROJECT_NAME" ] && [ ! -d "$REPO_DIR/$PROJECT_NAME" ]; then
   exit 1
 fi
 
-# 出力ファイル名を決定
-OUTPUT="$ROOT_DIR/projects.code-workspace"
+# 出力ファイル名を決定（プロジェクトごとに別ファイルにしてVSCodeにリロードを強制）
+if [ -n "$PROJECT_NAME" ]; then
+  OUTPUT="$ROOT_DIR/projects-${PROJECT_NAME}.code-workspace"
+else
+  OUTPUT="$ROOT_DIR/projects-all.code-workspace"
+fi
 
 # フォルダとscanパスを構築
 folders='    {\n      "path": ".",\n      "name": "projects"\n    }'

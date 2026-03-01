@@ -12,7 +12,8 @@
   "mounts": [
     "source=projects-claude-data,target=/home/node/.claude,type=volume",
     "source=projects-npm-cache,target=/home/node/.npm,type=volume",
-    "source=projects-pnpm-store,target=/home/node/.local/share/pnpm,type=volume"
+    "source=projects-pnpm-store,target=/home/node/.local/share/pnpm,type=volume",
+    "source=projects-gh-config,target=/home/node/.config/gh,type=volume"
   ],
   "customizations": {
     "vscode": {
@@ -20,6 +21,7 @@
         "dbaeumer.eslint",
         "esbenp.prettier-vscode",
         "bradlc.vscode-tailwindcss",
+        "prisma.prisma",
         "ms-vscode.vscode-typescript-next",
         "anthropic.claude-code"
       ]

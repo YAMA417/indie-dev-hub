@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     jq \
     sudo \
     curl \
+    tmux \
     && rm -rf /var/lib/apt/lists/*
 
 # nodeユーザー（UID 1000、ベースイメージ既存）にsudo権限付与

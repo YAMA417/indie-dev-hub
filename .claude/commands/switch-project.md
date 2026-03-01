@@ -10,9 +10,17 @@ allowed-tools: Read, Glob, Bash, AskUserQuestion
 ### 手順
 
 1. `repo/` 配下のディレクトリを検出し、プロジェクト一覧を取得する
-2. AskUserQuestion ツールで「どのプロジェクトを開発しますか？」と選択肢を提示する
-   - repo/ 配下の全プロジェクトを選択肢にする
-   - 「全プロジェクト」も選択肢に含める
+2. プロジェクト一覧を番号付きで表示し、ユーザーに選択を促す
+   - 例:
+     ```
+     プロジェクト一覧:
+     1. OshiBoard
+     2. poke-dex-battle
+     0. 全プロジェクト
+
+     番号またはプロジェクト名を入力してください。
+     ```
+   - ユーザーが番号またはプロジェクト名で回答するのを待つ
 3. ユーザーの選択に応じて以下を実行する:
    - 特定プロジェクト選択時: `bash scripts/generate-workspace.sh --open <project-name>`
    - 「全プロジェクト」選択時: `bash scripts/generate-workspace.sh --open`

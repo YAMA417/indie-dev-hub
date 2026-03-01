@@ -84,6 +84,10 @@ echo "生成完了: $OUTPUT"
 
 # 自動で開く
 if [ "$AUTO_OPEN" = true ]; then
-  code --reuse-window "$OUTPUT"
-  echo "ワークスペースを開きました"
+  # code コマンドが実際に動作するか確認（docker exec経由だと使えない）
+  if code --reuse-window "$OUTPUT" 2>/dev/null; then
+    echo "ワークスペースを開きました"
+  elif [ -n "$PROJECT_NAME" ]; then
+    echo "ターミナルモード: cd $REPO_DIR/$PROJECT_NAME で移動してください"
+  fi
 fi
